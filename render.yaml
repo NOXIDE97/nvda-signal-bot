@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: nvda-signal-bot
+    env: python
+    region: frankfurt  # o altra vicina
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python nvda_signal_bot.py
+    envVars:
+      - key: NVDA_TELEGRAM_TOKEN
+        sync: false
+      - key: NVDA_CHAT_ID
+        sync: false
